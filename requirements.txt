@@ -1,0 +1,13 @@
+# Installed automatically in the notebook (plus the ELASTIC repository's requirements)
+kloppy
+pandera
+py7zr
+fastparquet
+pyarrow
+scipy
+tqdm
+statsmodels
+matplotlib
+numpy
+pandas
+requests

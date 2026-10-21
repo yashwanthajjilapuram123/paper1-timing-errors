@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "When the clock is wrong: event-tracking timing errors and event-level load (code)"
+authors:
+  - family-names: Ajjilapuram
+    given-names: Yashwanth
+    orcid: "https://orcid.org/0009-0000-0198-8303"
+    affiliation: "Ball2Data Ltd"
+date-released: 2026-10-21
+license: MIT
