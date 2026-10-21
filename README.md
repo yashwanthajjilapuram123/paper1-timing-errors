@@ -13,13 +13,13 @@ Practitioners link coded match events (passes, tackles, shots) to positional dat
 1. Open `paper1_reproduce.ipynb` in Google Colab (File → Upload notebook, or the "Open in Colab" button on GitHub).
 2. Run all cells in order. First run ≈ 45–75 minutes; data are cached in your Google Drive (`MyDrive/paper1`).
 3. Tables and figures are written to `paper1_results/`.
-4. Publication-style figures: `python figures/make_figs.py` and `python figures/make_figs2.py` (numbers taken from the notebook outputs).
+4. Publication-style figures: `python make_figs.py` and `python make_figs2.py` (numbers taken from the notebook outputs).
 
 ## Repository contents
 | File | Purpose |
 |---|---|
 | `paper1_reproduce.ipynb` | Full analysis pipeline (download → sync → load flags → statistics → figures) |
-| `figures/` | Scripts for the final manuscript figures (colour-blind-safe style) |
+| `figstyle.py`, `make_figs.py`, `make_figs2.py` | Scripts for the final manuscript figures (colour-blind-safe style) |
 | `requirements.txt` | Packages beyond the ELASTIC repository's own requirements |
 
 ## Data and third-party code (not included here)
