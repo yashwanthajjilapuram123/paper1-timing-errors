@@ -54,7 +54,7 @@ axes[-1,0].set_xlabel('True flags missed (%, 95% CI)'); axes[-1,2].set_xlabel('F
 fig.text(0.99, 0.0, 'p: paired exact (McNemar) test vs raw feed; n.s. = not significant after Bonferroni correction (α = 0.0042). n = 3,186 events.', ha='right', fontsize=6, color=MUTED)
 fig.savefig(OUT+'Fig3_flags_forest.pdf'); fig.savefig(OUT+'Fig3_flags_forest.png', dpi=400); plt.close()
 
-# ---------- Fig 5: event-type heatmap ----------
+# ---------- Figure 4 (file Fig5_event_type): event-type heatmap ----------
 T3 = pd.DataFrame({'n':[2126,198,125,119,108,107,100,60],
     'Raw feed':[0.72,0.94,0.60,0.08,0.86,1.48,0.78,0.84],'Constant shift':[0.72,0.80,0.52,0.52,0.78,1.60,0.66,0.54],
     'ETSY':[0.08,0.08,0.04,0.00,0.12,0.44,0.12,0.04],'ELASTIC':[0.0]*8},
@@ -77,24 +77,5 @@ i = list(T3.index).index('Throw-in')
 ax.add_patch(plt.Rectangle((-0.5, i-0.5), 2, 1, fill=False, ec=OKABE['Constant shift'], lw=1.4))
 fig.savefig(OUT+'Fig5_event_type.pdf'); fig.savefig(OUT+'Fig5_event_type.png', dpi=400); plt.close()
 
-# ---------- Fig 2 (summary, from known values): timing error thresholds by method ----------
-TE = pd.DataFrame({'Median |error| (s)':[0.76,0.72,0.08,0.00],'>1 s':[39.2,35.4,11.4,2.1],'>2 s':[15.9,12.3,5.8,1.2]}, index=M)
-fig, axes = plt.subplots(1, 2, figsize=(6.85, 1.9), gridspec_kw=dict(width_ratios=[1, 1.6], wspace=0.45))
-ax = axes[0]
-for k, m in enumerate(M):
-    ax.barh(3-k, TE.loc[m,'Median |error| (s)'], color=OKABE[m], height=0.62)
-    ax.text(TE.loc[m,'Median |error| (s)']+0.02, 3-k, f"{TE.loc[m,'Median |error| (s)']:.2f} s", va='center', fontsize=6.8)
-ax.set_yticks(range(4)); ax.set_yticklabels(M[::-1]); ax.set_xlim(0, 1.0); ax.grid(axis='y', visible=False)
-ax.set_xlabel('Median absolute timing error (s)'); panel(ax, 'A')
-ax = axes[1]
-w = 0.36
-for k, m in enumerate(M):
-    y = 3-k
-    ax.barh(y+w/2, TE.loc[m,'>1 s'], height=w, color=OKABE[m], edgecolor='white', lw=0.5)
-    ax.barh(y-w/2, TE.loc[m,'>2 s'], height=w, color=OKABE[m], alpha=0.45, edgecolor='white', lw=0.5, hatch='////')
-    ax.text(TE.loc[m,'>1 s']+0.6, y+w/2, f"{TE.loc[m,'>1 s']:.1f}%  >1 s", va='center', fontsize=6.5)
-    ax.text(TE.loc[m,'>2 s']+0.6, y-w/2, f"{TE.loc[m,'>2 s']:.1f}%  >2 s", va='center', fontsize=6.5, color=MUTED)
-ax.set_yticks(range(4)); ax.set_yticklabels([]); ax.set_xlim(0, 52); ax.grid(axis='y', visible=False)
-ax.set_xlabel('Events exceeding error threshold (%)'); panel(ax, 'B')
-fig.savefig(OUT+'Fig2_timing_summary.pdf'); fig.savefig(OUT+'Fig2_timing_summary.png', dpi=400); plt.close()
+# Figure 2 is built from the per-event data by make_fig2.py
 print('ok')
